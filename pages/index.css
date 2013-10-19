@@ -1,0 +1,19 @@
+body{
+	margin:0px;
+	
+	/*filter:progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=silver,endColorStr=white);/*IE6*/
+	/*background:-moz-linear-gradient(top,silver,white);/*非IE6的其它*/
+	/*background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(silver), to(white));/*非IE6的其它*/
+	
+	
+	background-image:url(background.jpg);
+	background-position:center;
+	background-attachment:fixed;
+	background-size:cover;
+	/*
+	background-size:100% auto;
+	background-size:auto 100%;
+	background-size:100% auto;
+	*/
+	
+}
