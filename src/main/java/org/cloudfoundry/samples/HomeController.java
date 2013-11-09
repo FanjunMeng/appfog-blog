@@ -26,7 +26,7 @@ public class HomeController {
 	 * Prepares the Model with some metadata and the list of States retrieved
 	 * from the DB. Then, selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/rest", method=RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("Welcome home!");
 		model.addAttribute("dbinfo", referenceRepository.getDbInfo());
