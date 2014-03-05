@@ -1,4 +1,4 @@
-package org.cloudfoundry.samples;
+package org.appfog.blog.bootstrat;
 
 import java.util.List;
 

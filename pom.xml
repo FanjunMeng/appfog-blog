@@ -164,6 +164,12 @@
 			<artifactId>jackson-mrbean</artifactId>
 			<version>1.9.7</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
@@ -205,6 +211,7 @@
 			<scope>test</scope>
 		</dependency>
 
+		
 	</dependencies>
 
 	<repositories>
