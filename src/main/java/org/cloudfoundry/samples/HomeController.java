@@ -36,6 +36,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/testJson")
 	public List<State> testJson(){
+		
 		return referenceRepository.findAll();
 	}
 

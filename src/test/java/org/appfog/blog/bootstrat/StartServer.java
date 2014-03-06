@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.HttpConfiguration;
+import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.nio.SelectChannelConnector;
+import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.webapp.WebAppClassLoader;
 import org.eclipse.jetty.webapp.WebAppContext;
 
@@ -26,7 +28,6 @@ public class StartServer {
 		// 启动Jetty
 		Server server = JettyFactory.createServerInSource(PORT, CONTEXT);
 		JettyFactory.setTldJarNames(server, TLD_JAR_NAMES);
-		
 		try {
 			server.start();
 
@@ -60,7 +61,11 @@ class JettyFactory {
 		// 设置在JVM退出时关闭Jetty的钩子。
 		server.setStopAtShutdown(true);
 
-		SelectChannelConnector connector = new SelectChannelConnector();
+		HttpConfiguration config = new HttpConfiguration();
+		ServerConnector connector = new ServerConnector(server,new HttpConnectionFactory(config));
+		connector.setReuseAddress(true);
+		connector.setIdleTimeout(30000);
+		
 		connector.setPort(port);
 		// 解决Windows下重复启动Jetty居然不报告端口冲突的问题.
 		connector.setReuseAddress(false);
